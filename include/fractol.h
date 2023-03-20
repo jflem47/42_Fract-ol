@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:10:00 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/03/16 20:15:30 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/03/20 14:26:03 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,6 @@ typedef struct s_env
 	double		j_x;
 	double		j_y;
 }				t_env;
-
-typedef struct s_point
-{
-	double		x;
-	double		y;
-}				s_point;
 
 typedef enum e_updated
 {
