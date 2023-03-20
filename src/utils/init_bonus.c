@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:39:08 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/03/16 15:03:42 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:18:07 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ mlx_t	*init(void)
 	res = mlx_init(W, H, "fract'ol", true);
 	if (!res)
 		ft_error();
+	mlx_set_window_limit(res, W, H, W, H);
 	return (res);
 }
 

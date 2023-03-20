@@ -6,15 +6,16 @@
 #    By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 16:48:41 by jlemieux          #+#    #+#              #
-#    Updated: 2023/03/16 14:28:30 by jlemieux         ###   ########.fr        #
+#    Updated: 2023/03/16 20:10:42 by jlemieux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fractol
+BONUS_NAME = fractol_bonus 
 CFLAGS	= -Wextra -Wall -Werror
 LIBMLX	= ./lib/MLX42
-
-HEADERS	= -I ./include -I $(LIBMLX)/include -I lib/libft -I/Users/jlemieux/.brew/opt/libomp/include
+HEADERS = ./include/fractol.h ./include/fractol_bonus.h 
+INCLUDES	= -I ./include -I $(LIBMLX)/include -I lib/libft -I/Users/jlemieux/.brew/opt/libomp/include
 LIBS	= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -L "/Users/$(USER)/homebrew/opt/glfw/lib/" -pthread -lm ./lib/libft/libft.a
 
 SRCS	= 	src/main.c \
@@ -40,11 +41,11 @@ OBJS	= ${SRCS:.c=.o}
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
-$(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) -o $(NAME) $(HEADERS)
+$(NAME): $(OBJS) $(HEADERS)
+	@$(CC) $(OBJS) $(LIBS) -o $(NAME) $(INCLUDES)
 
 bonus : libft libmlx $(BONUS_OBJS)
-	@$(CC) $(BONUS_OBJS) $(LIBS) -o $(NAME) $(HEADERS)
+	@$(CC) $(BONUS_OBJS) $(LIBS) -o $(BONUS_NAME) $(INCLUDES)
 
 all: libft libmlx $(NAME)
 
@@ -56,7 +57,7 @@ libft:
 	@make -C lib/libft
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
+	@$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDES) && printf "Compiling: $(notdir $<)\n"
 
 clean:
 	@rm -f $(OBJS)
@@ -69,6 +70,7 @@ clean:
 fclean: clean
 	$(info Cleaning fract'ol...)
 	@rm -f $(NAME)
+	@rm -f $(BONUS_NAME)
 	@make fclean -C lib/libft
 	$(info Done!)
 
