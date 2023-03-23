@@ -6,7 +6,7 @@
 #    By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 16:48:41 by jlemieux          #+#    #+#              #
-#    Updated: 2023/03/16 20:10:42 by jlemieux         ###   ########.fr        #
+#    Updated: 2023/03/23 13:23:59 by jlemieux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ OBJS	= ${SRCS:.c=.o}
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
-$(NAME): $(OBJS) $(HEADERS)
+$(NAME): libft libmlx $(OBJS) $(HEADERS)
 	@$(CC) $(OBJS) $(LIBS) -o $(NAME) $(INCLUDES)
 
 bonus : libft libmlx $(BONUS_OBJS)
