@@ -6,7 +6,7 @@
 #    By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 16:48:41 by jlemieux          #+#    #+#              #
-#    Updated: 2023/03/23 13:29:22 by jlemieux         ###   ########.fr        #
+#    Updated: 2023/03/30 17:45:30 by jlemieux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ BONUS_NAME = fractol_bonus
 CFLAGS	= -Wextra -Wall -Werror
 LIBMLX	= ./lib/MLX42
 HEADERS = ./include/fractol.h ./include/fractol_bonus.h 
-INCLUDES	= -I ./include -I $(LIBMLX)/include -I lib/libft -I/Users/jlemieux/.brew/opt/libomp/include
-LIBS	= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -L "/Users/$(USER)/homebrew/opt/glfw/lib/" -pthread -lm ./lib/libft/libft.a
+INCLUDES	= -I ./include -I $(LIBMLX)/include -I lib/libft -I/Users/$(USER)/.brew/opt/libomp/include
+LIBS	= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/" -pthread -lm ./lib/libft/libft.a
 
 SRCS	= 	src/main.c \
 			src/utils/input_utils.c \
